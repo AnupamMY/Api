@@ -1,5 +1,6 @@
 const restify = require('restify');
 const {MongoClient} = require('mongodb');
+const { faker } = require('@faker-js/faker');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const {v4 : uuidv4} = require('uuid')
@@ -53,6 +54,17 @@ app.del("/mongo/delete/:id", async function (req, res) {
     res.send("Data Deleted Successfully");
 })
 
+async function data(){
+   let data=[]
+   for (let i = 0; i < 10; i++) {
+    let name = faker.internet.username();
+    let email = faker.internet.email();
+    let login = faker.date.recent(30).getTime();
+    let logout = login + ( Math.floor(Math.random() * 60)+1)*6000; 
+    data.push([name,email,login,logout]);
+}
+}
+data()
 app.listen(PORT, function () {
     console.log(`listening on port ${PORT}`);
-});
+})

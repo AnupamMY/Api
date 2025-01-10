@@ -54,16 +54,6 @@ app.del("/elastic/delete/:id",async (req,res)=>{
 })
 
 
-// function createRandomUser() {
-//     return {
-//       userId: faker.string.uuid(),
-//       username: faker.internet.username(), // before version 9.1.0, use userName()
-//       email: faker.internet.email(),
-//     };
-//   }
-// const users = faker.helpers.multiple(createRandomUser, {
-//     count:100,
-// });
 
 
 
